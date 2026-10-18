@@ -1,0 +1,389 @@
+/* ==========================================
+   PALETA ANIME LOBBY & TEMA DINÁMICO
+   ========================================== */
+:root {
+    --bg-dark: #07070a;
+    --panel-bg: rgba(18, 16, 26, 0.75);
+    --panel-border: rgba(168, 85, 247, 0.2);
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    
+    --accent-purple: #a855f7;
+    --accent-cyan: #06b6d4;
+    --glow-color: rgba(168, 85, 247, 0.15);
+
+    --danger-red: #ff003c;
+    --danger-panel: rgba(25, 5, 12, 0.85);
+    --danger-border: rgba(255, 0, 60, 0.35);
+
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modo sombrío automático para NSFW */
+body.nsfw-mode {
+    --bg-dark: #020203;
+    --panel-bg: rgba(15, 3, 7, 0.9);
+    --panel-border: rgba(255, 0, 60, 0.4);
+    --text-main: #fff0f3;
+    --text-muted: #a3888e;
+    --glow-color: rgba(255, 0, 60, 0.25);
+}
+
+/* ==========================================
+   RESETS & ESTRUCTURA BASE
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    transition: background-color var(--transition);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Fondo Glow Neón */
+.ambient-glow {
+    position: fixed;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, var(--glow-color) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+/* ==========================================
+   HEADER Y PRESENTACIÓN
+   ========================================== */
+.lobby-header {
+    width: 100%;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.banner-box {
+    width: 100%;
+    height: 320px;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.65) contrast(1.1);
+}
+
+.banner-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, var(--bg-dark) 100%);
+}
+
+.identity-card {
+    max-width: 850px;
+    margin: -80px auto 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+.avatar-ring {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+    box-shadow: 0 0 30px var(--glow-color);
+    margin-bottom: 15px;
+    transition: var(--transition);
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #000;
+}
+
+.community-tag {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+}
+
+.lobby-name {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin: 4px 0;
+}
+
+.author-signature {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.author-signature span {
+    color: var(--accent-purple);
+    font-weight: 600;
+}
+
+/* ==========================================
+   BLOQUES Y TARJETAS
+   ========================================== */
+.content-wrapper {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-block {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 35px;
+    margin-bottom: 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: var(--transition);
+}
+
+.section-block:hover {
+    border-color: var(--accent-purple);
+    transform: translateY(-2px);
+}
+
+.block-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--accent-purple);
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    padding: 4px 12px;
+    border-radius: 30px;
+    margin-bottom: 15px;
+}
+
+.badge-danger {
+    color: var(--danger-red);
+    background: rgba(255, 0, 60, 0.1);
+    border-color: rgba(255, 0, 60, 0.3);
+}
+
+.block-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.text-danger {
+    color: #ff4d6d;
+}
+
+/* REGLAS LIBRES (GRID) */
+.rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media(max-width: 650px) {
+    .rules-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.rule-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 14px;
+    display: flex;
+    gap: 15px;
+}
+
+.rule-num {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+}
+
+.rule-box h3 {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+}
+
+.rule-box p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ZONA PROHIBIDA NSFW */
+.block-restricted {
+    background: var(--danger-panel);
+    border-color: var(--danger-border);
+    box-shadow: 0 0 35px rgba(255, 0, 60, 0.15);
+}
+
+.block-description {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.restricted-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.danger-item {
+    display: flex;
+    gap: 15px;
+    background: rgba(255, 0, 60, 0.05);
+    border: 1px solid rgba(255, 0, 60, 0.15);
+    padding: 18px;
+    border-radius: 12px;
+}
+
+.danger-icon {
+    color: var(--danger-red);
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+.danger-item h4 {
+    font-size: 0.95rem;
+    color: #ffe5ec;
+    margin-bottom: 4px;
+}
+
+.danger-item p {
+    font-size: 0.85rem;
+    color: #ffb3c1;
+}
+
+.danger-banner {
+    margin-top: 20px;
+    background: var(--danger-red);
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.danger-tag {
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* LISTA DE PROTOCOLO */
+.protocol-list {
+    list-style: none;
+}
+
+.protocol-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
+    font-size: 0.92rem;
+}
+
+.protocol-list li::before {
+    content: "◆";
+    position: absolute;
+    left: 0;
+    color: var(--accent-purple);
+    font-size: 0.7rem;
+    top: 4px;
+}
+
+/* SISTEMA DE VIDAS */
+.system-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media(max-width: 600px) {
+    .system-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+.system-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--panel-border);
+    padding: 22px;
+    border-radius: 14px;
+}
+
+.lives-count {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent-purple);
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.count-alt {
+    color: var(--accent-cyan);
+}
+
+.system-card h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.system-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.lobby-footer {
+    text-align: center;
+    padding: 50px 20px;
+    border-top: 1px solid var(--panel-border);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.footer-line {
+    color: var(--accent-purple);
+    margin-bottom: 10px;
+      }
