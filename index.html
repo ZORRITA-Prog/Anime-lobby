@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo Anime Lobby — Protocolo & Normas</title>
+    
+    <!-- Tipografía Futurista y Limpia -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Hojas de Estilo -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Fondo de Luz Ambiental Dinámico -->
+    <div class="ambient-glow" id="ambientGlow"></div>
+
+    <header class="lobby-header">
+        <!-- Hero Banner con Marcos Especiales -->
+        <div class="banner-box">
+            <img src="https://inmiku.infinityfreeapp.com/u/ImMiku_c42abee8.jpg" alt="Mundo Anime Banner" class="banner-media">
+            <div class="banner-gradient"></div>
+        </div>
+
+        <!-- Tarjeta de Identidad del Lobby -->
+        <div class="identity-card">
+            <div class="avatar-ring">
+                <img src="https://inmiku.infinityfreeapp.com/u/ImMiku_f2bed7ce.jpg" alt="Icono Oficial" class="avatar-img">
+            </div>
+            <div class="identity-text">
+                <span class="community-tag">Comunidad Oficial</span>
+                <h1 class="lobby-name">Mundo Anime Lobby</h1>
+                <div class="author-signature">Supervisado & Creado por <span>Olivia Gordon</span></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+
+        <!-- BLOQUE 01: CONTENIDO PERMITIDO -->
+        <section class="section-block block-allowed">
+            <div class="block-badge">
+                <span class="symbol">✦</span> SECCIÓN LIBRE
+            </div>
+            <h2 class="block-title">Interacción y Convivencia Otaku</h2>
+            
+            <div class="rules-grid">
+                <div class="rule-box">
+                    <span class="rule-num">01</span>
+                    <div>
+                        <h3>Cultura Anime y Recomendaciones</h3>
+                        <p>Se permite publicar hilos de debate, imágenes de tus series favoritas, fanarts públicos, música, noticias y recomendaciones culturales.</p>
+                    </div>
+                </div>
+
+                <div class="rule-box">
+                    <span class="rule-num">02</span>
+                    <div>
+                        <h3>Gestión de Spoilers</h3>
+                        <p>Los spoilers de mangas o animes en emisión están permitidos <em>únicamente utilizando la etiqueta/advertencia previa de SPOILER</em>.</p>
+                    </div>
+                </div>
+
+                <div class="rule-box">
+                    <span class="rule-num">03</span>
+                    <div>
+                        <h3>Sistemas de Rol</h3>
+                        <p>Puedes emplear los personajes o roles asignados dentro de la comunidad, manteniendo el balance y sin abusar de límites de poder.</p>
+                    </div>
+                </div>
+
+                <div class="rule-box">
+                    <span class="rule-num">04</span>
+                    <div>
+                        <h3>Bromas y Relación Social</h3>
+                        <p>Se autoriza el uso de bromas pesadas o insultos ligeros en tono amigable, <em>siempre y cuando sea en juego consensuado y sin intención de humillar</em>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOQUE 02: SECCIÓN CRÍTICA NSFW / HENTAI (Cambio de luces a Rojo Sombrío) -->
+        <section class="section-block block-restricted" id="nsfwBlock">
+            <div class="block-badge badge-danger">
+                <span class="symbol">▲</span> PROHIBICIÓN ABSOLUTA
+            </div>
+            <h2 class="block-title text-danger">Zona de Cero Tolerancia (NSFW / Hentai)</h2>
+            <p class="block-description">
+                Este lobby es un entorno apto para fanáticos de todas las edades. La publicación de material explícito resultará en sanciones inmediatas sin previo aviso.
+            </p>
+
+            <div class="restricted-list">
+                <div class="danger-item">
+                    <div class="danger-icon">✕</div>
+                    <div>
+                        <h4>Hentai, Erotismo y Desnudez</h4>
+                        <p>Queda strictly prohibido enviar doujinshis explícitos, renders +18, ilustraciones eróticas, ecchi extremo o fotografías reales/ficticias de desnudez.</p>
+                    </div>
+                </div>
+
+                <div class="danger-item">
+                    <div class="danger-icon">✕</div>
+                    <div>
+                        <h4>Stickers y Archivos Sugerentes</h4>
+                        <p>Prohibidos stickers, GIFs o memes con poses fetichistas, insinuaciones sexuales explícitas o contenido vulgar.</p>
+                    </div>
+                </div>
+
+                <div class="danger-item">
+                    <div class="danger-icon">✕</div>
+                    <div>
+                        <h4>Enlaces y Códigos +18</h4>
+                        <p>Cero links hacia servidores NSFW, sitios de hentai (nHentai, etc.), códigos de invitación o enlaces a cuentas de pago eróticas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="danger-banner">
+                <span class="danger-tag">SANCIÓN DIRECTA:</span> La infracción de esta norma resta de <strong>2 a 3 vidas</strong> de inmediato o resulta en la expulsión definitiva.
+            </div>
+        </section>
+
+        <!-- BLOQUE 03: ORDEN Y DISCIPLINA -->
+        <section class="section-block">
+            <div class="block-badge">
+                <span class="symbol">◈</span> PROTOCOLO
+            </div>
+            <h2 class="block-title">Reglas de Convivencia General</h2>
+
+            <ul class="protocol-list">
+                <li>
+                    <strong>Respeto al Staff:</strong> Las decisiones tomadas por los administradores se acatan. No se toleran actitudes desafiantes o faltas de respeto hacia el equipo.
+                </li>
+                <li>
+                    <strong>Prohibido Acoso por Privado (DM):</strong> Cero mensajes internos sin consentimiento. Reportar acoso por privado implica la expulsión directa.
+                </li>
+                <li>
+                    <strong>Toxicidad y Discriminación:</strong> Prohibido el elitismo otaku (gatekeeping), disputas tóxicas por "waifus" o discursos de odio.
+                </li>
+                <li>
+                    <strong>Privacidad de Miembros:</strong> No meterse en problemas sentimentales o discusiones personales ajenas. <em>Lo que sucede en el grupo, se queda en el grupo.</em>
+                </li>
+                <li>
+                    <strong>Gore y Material Perturbador:</strong> Prohibido enviar imágenes de comida repulsiva, gore extremo, violencia explícita o animales muertos.
+                </li>
+                <li>
+                    <strong>Responsabilidad de Invitados:</strong> Si agregas a alguien y esta persona rompe las reglas, el invitado será expulsado y tú recibirás un castigo disciplinario.
+                </li>
+                <li>
+                    <strong>Limpieza de Inactivos:</strong> No se admiten usuarios "fantasma". Mantener presencia activa en la comunidad es indispensable.
+                </li>
+            </ul>
+        </section>
+
+        <!-- BLOQUE 04: SISTEMA DE SANCIONES -->
+        <section class="section-block block-system">
+            <div class="block-badge">
+                <span class="symbol">❖</span> SISTEMA DE VIDAS
+            </div>
+            <h2 class="block-title">Estructura de Faltas y Redención</h2>
+
+            <div class="system-columns">
+                <div class="system-card">
+                    <div class="lives-count">5 VIDAS</div>
+                    <h3>Límite de Oportunidades</h3>
+                    <p>Cada usuario inicia con 5 vidas. Cada falta resta créditos según su gravedad. Al llegar a 0 vidas, serás declarado <strong>desterrado del
